@@ -1,0 +1,14 @@
+<mat-selection-list
+  #list
+  [multiple]="false"
+  (selectionChange)="handleSelectGroup(list)">
+  <mat-list-option
+    *ngFor="let group of groups"
+    class="groups-item"
+    [value]="group">
+    <div class="group">
+      <mat-icon aria-hidden="false" aria-label="Group">bookmark</mat-icon>
+      <span>Group {{group + 1}}</span>
+    </div>
+  </mat-list-option>
+</mat-selection-list>

@@ -1,0 +1,23 @@
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-checkbox
+      class="checkbox"
+      [name]="Names.showTranslationCard"
+      [checked]="settings.showTranslationCard"
+      (change)="handleChangeSetting($event)">
+      Show translation on cards
+    </mat-checkbox>
+  </button>
+  <button mat-menu-item>
+    <mat-checkbox
+      class="checkbox"
+      [name]="Names.showButtonsCard"
+      [checked]="settings.showButtonsCard"
+      (change)="handleChangeSetting($event)">
+      Show buttons on cards
+    </mat-checkbox>
+  </button>
+</mat-menu>

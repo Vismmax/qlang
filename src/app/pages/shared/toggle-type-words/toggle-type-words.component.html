@@ -1,0 +1,8 @@
+<mat-button-toggle-group
+  aria-label="Type cards"
+  [value]="type"
+  (change)="handleChangeType($event)">
+  <mat-button-toggle class="button" [value]="Types.learned">Learned</mat-button-toggle>
+  <mat-button-toggle class="button" [value]="Types.difficult">Difficult</mat-button-toggle>
+  <mat-button-toggle class="button" [value]="Types.deleted">Deleted</mat-button-toggle>
+</mat-button-toggle-group>

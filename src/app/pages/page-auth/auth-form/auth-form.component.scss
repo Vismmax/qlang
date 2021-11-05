@@ -1,0 +1,19 @@
+:host(.content) {
+  height: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-top: 24px;
+}
+
+.input-wrap {
+  display: block;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}

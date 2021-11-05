@@ -1,0 +1,61 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport mode="over" [opened]="false">
+
+    <mat-toolbar>Menu</mat-toolbar>
+
+    <mat-nav-list>
+      <ng-container *ngFor="let page of pages">
+        <a [routerLink]="page.route" mat-list-item>
+          <mat-icon class="menu-icon">{{page.iconName}}</mat-icon>
+          <span>{{page.title}}</span>
+        </a>
+      </ng-container>
+    </mat-nav-list>
+
+  </mat-sidenav>
+  <mat-sidenav-content class="main">
+    <mat-toolbar class="toolbar" color="primary">
+<!--      <button-->
+<!--        type="button"-->
+<!--        aria-label="Toggle sidenav"-->
+<!--        mat-icon-button-->
+<!--        (click)="drawer.toggle()"-->
+<!--        *ngIf="isHandset$ | async">-->
+<!--        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>-->
+<!--      </button>-->
+            <button
+              type="button"
+              aria-label="Toggle sidenav"
+              mat-icon-button
+              (click)="drawer.toggle()">
+              <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+      <a class="title" mat-button routerLink="/home">QLang</a>
+
+      <span class="spacer"></span>
+
+      <ng-container *ngFor="let page of pages">
+        <a *ngIf="page.path !== 'home'" [routerLink]="page.route" mat-button>
+          <mat-icon class="menu-icon">{{page.iconName}}</mat-icon>
+          <span>{{page.title}}</span>
+        </a>
+        <button *ngIf="page.path === 'dictionary'" mat-button [matMenuTriggerFor]="games">
+          <mat-icon class="menu-icon">sports_esports</mat-icon>
+          <span>Games</span>
+          <mat-icon class="menu-icon">arrow_drop_down</mat-icon>
+        </button>
+      </ng-container>
+
+      <mat-menu #games="matMenu">
+        <a mat-menu-item>Game 1</a>
+        <a mat-menu-item>Game 2</a>
+      </mat-menu>
+
+    </mat-toolbar>
+
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

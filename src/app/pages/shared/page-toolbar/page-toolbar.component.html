@@ -1,0 +1,14 @@
+<mat-toolbar class="toolbar">
+  <div>
+    <button
+      *ngIf="showBtnToggle"
+      mat-icon-button
+      aria-label="Show groups"
+      (click)="handleToggleSidebar()">
+      <mat-icon>bookmark</mat-icon>
+    </button>
+    <span>{{title}}</span>
+  </div>
+<!--  <span class="spacer"></span>-->
+  <ng-content></ng-content>
+</mat-toolbar>

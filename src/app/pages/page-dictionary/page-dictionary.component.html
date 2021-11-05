@@ -1,0 +1,32 @@
+<app-page-layout>
+  <app-groups-layout title="Dictionary" [showToggleTypeWords]="true">
+    <mat-card class="top-bar">
+      <mat-paginator
+        [length]="words.length"
+        [pageSize]="settings.pageSize"
+        [pageSizeOptions]="settings.pageSizeOptions"
+        [pageIndex]="pageIndex"
+        [showFirstLastButtons]="true"
+        [hidePageSize]="!settings.showPageSize"
+        aria-label="Select page"
+        (page)="handlePageEvent($event)">
+      </mat-paginator>
+      <app-toggle-view
+        [view]="viewCards"
+        (changeView)="handleChangeView($event)">
+      </app-toggle-view>
+    </mat-card>
+
+    <div [class]="['cards', viewCards]">
+      <app-card-word
+        *ngFor="let word of words | slice:(pageIndex*settings.pageSize):(pageIndex*settings.pageSize+settings.pageSize)"
+        [class]="['card', viewCards]"
+        [word]="word"
+        [view]="viewCards"
+        [showTranslate]="settings.showTranslationCard"
+        [showButtons]="settings.showButtonsCard"
+        (changeType)="handleChangeTypeWord($event)">
+      </app-card-word>
+    </div>
+  </app-groups-layout>
+</app-page-layout>

@@ -1,0 +1,39 @@
+<app-page-layout>
+  <app-page-toolbar title="Settings">
+    <button mat-button color="primary" (click)="handleResetSettings()">Reset</button>
+  </app-page-toolbar>
+
+  <mat-card class="card">
+    <mat-card-title class="title">Textbook and Dictionary</mat-card-title>
+    <mat-card-content>
+      <mat-checkbox
+        class="checkbox"
+        [name]="Names.showPageSize"
+        [checked]="settings.showPageSize"
+        (change)="handleChangeSetting($event)">
+        Show page size selection
+      </mat-checkbox>
+      <mat-checkbox
+        class="checkbox"
+        [name]="Names.showTranslationCard"
+        [checked]="settings.showTranslationCard"
+        (change)="handleChangeSetting($event)">
+        Show translation on cards
+      </mat-checkbox>
+      <mat-checkbox
+        class="checkbox"
+        [name]="Names.showButtonsCard"
+        [checked]="settings.showButtonsCard"
+        (change)="handleChangeSetting($event)">
+        Show buttons on cards
+      </mat-checkbox>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-title class="title">Games</mat-card-title>
+    <mat-card-content>
+    </mat-card-content>
+  </mat-card>
+
+</app-page-layout>

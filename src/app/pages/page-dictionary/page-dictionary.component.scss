@@ -1,0 +1,40 @@
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 0;
+
+  &.grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+}
+
+.card {
+  display: flex;
+
+  &.grid {
+    width: 45%;
+
+    @media (max-width: 960px) {
+      width: 90%;
+    }
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
+}

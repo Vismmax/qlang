@@ -1,0 +1,30 @@
+<form
+  class="form"
+  [formGroup]="authForm"
+  (ngSubmit)="handleSubmit()">
+
+  <mat-form-field class="input-wrap" appearance="standard">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" placeholder="Email" required formControlName="email">
+    <mat-error *ngIf="authForm.controls.email.errors">
+      Please enter a valid email address
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="input-wrap" appearance="standard">
+    <mat-label>Password</mat-label>
+    <input matInput type="password" placeholder="Password" required formControlName="password">
+    <mat-error *ngIf="authForm.controls.password.errors">
+      Password must be at least 3 characters
+    </mat-error>
+  </mat-form-field>
+
+  <div class="buttons">
+    <button mat-raised-button type="reset" (click)="handleCancel()">
+      Cancel
+    </button>
+    <button mat-raised-button type="submit" color="primary" [disabled]="authForm.invalid">
+      {{type | titlecase}}
+    </button>
+  </div>
+</form>

@@ -1,0 +1,59 @@
+.card {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &.grid {
+    @media (max-width: 1200px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 8px;
+}
+
+.title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.word {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.transcription,
+.translate {
+  font-size: 18px;
+}
+
+.transcription {
+  opacity: 0.8;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.actions {
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}

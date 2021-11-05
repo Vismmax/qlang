@@ -1,0 +1,27 @@
+<app-page-toolbar
+  [title]="title"
+  [showBtnToggle]="isXSmall$ | async"
+  (toggleSidebar)="groupsDrawer.toggle()">
+  <app-toggle-type-words
+    *ngIf="showToggleTypeWords"
+    class="type-toggle"
+    [type]="activeTypeWords"
+    (changeType)="handleSelectActiveTypeWords($event)">
+  </app-toggle-type-words>
+  <app-button-setting-cards></app-button-setting-cards>
+</app-page-toolbar>
+<mat-drawer-container class="main">
+  <mat-drawer
+    class="groups"
+    #groupsDrawer
+    [mode]="(isXSmall$ | async) ? 'over' : 'side'"
+    [opened]="!(isXSmall$ | async)">
+    <app-page-sidebar
+      [groups]="groups"
+      (activeGroup)="handleSelectActiveGroup($event)">
+    </app-page-sidebar>
+  </mat-drawer>
+  <mat-drawer-content>
+    <ng-content></ng-content>
+  </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,46 @@
+<mat-card [class]="['card', view]">
+  <img mat-card-lg-image [src]="'assets/files/'+word?.image" [alt]="word?.word">
+  <div class="wrap">
+    <div class="title">
+      <div class="word">{{word?.word}}</div>
+      <button mat-icon-button aria-label="Play word" [disabled]="playing" (click)="playAudio()">
+        <mat-icon>volume_up</mat-icon>
+      </button>
+      <div class="transcription">{{word?.transcription}}</div>
+      <div *ngIf="showTranslate" class="translate">{{word?.translate}}</div>
+    </div>
+
+    <div class="content">
+      <div class="back">
+        <div [innerHTML]="word?.textMeaning"></div>
+        <div *ngIf="showTranslate">{{word?.textMeaningTranslate}}</div>
+      </div>
+      <div>
+        <div>🠖 <span [innerHTML]="word?.textExample"></span></div>
+        <div *ngIf="showTranslate">🠖 {{word?.textExampleTranslate}}</div>
+      </div>
+    </div>
+
+    <mat-card-actions *ngIf="showButtons" class="actions" align="end">
+      <button
+        *ngIf="word?.type !== Types.difficult && word?.type !== Types.deleted"
+        mat-stroked-button
+        color="primary"
+        (click)="handleDifficult()">
+        Difficult
+      </button>
+      <button
+        *ngIf="word?.type === Types.difficult && word?.type !== Types.deleted"
+        mat-flat-button
+        color="warn"
+        (click)="handleDifficult()">
+        Difficult
+      </button>
+      <button
+        mat-stroked-button
+        (click)="handleDelete()">
+        {{word?.type === Types.deleted ? 'Restore' : 'Delete'}}
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>

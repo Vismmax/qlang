@@ -1,0 +1,13 @@
+.groups-item {
+  height: auto !important;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 16px !important;
+  padding-right: 0 !important;
+}

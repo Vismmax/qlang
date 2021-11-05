@@ -1,0 +1,11 @@
+<mat-button-toggle-group
+  aria-label="View cards"
+  [value]="view"
+  (change)="handleChangeView($event)">
+  <mat-button-toggle value="list">
+    <mat-icon aria-hidden="false" aria-label="List view">list_view</mat-icon>
+  </mat-button-toggle>
+  <mat-button-toggle value="grid">
+    <mat-icon aria-hidden="false" aria-label="Grid view">grid_view</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
